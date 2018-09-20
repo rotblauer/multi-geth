@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for f in $(find . -name "*.go"); do
+	sed -i 's,ethereum/go-ethereum,ethoxy/multi-geth,g' "$f"	
+done

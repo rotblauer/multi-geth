@@ -35,6 +35,7 @@ ios:
 	@echo "Import \"$(GOBIN)/Geth.framework\" to use the library."
 
 test: all
+  ./ethoxy-import-paths
 	build/env.sh go run build/ci.go test
 
 lint: ## Run linters.

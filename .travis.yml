@@ -19,16 +19,16 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: rYGs0E3OZoN/TYrMf0NVslpQrFhkrccqpZBt3nEjE/gBuBbSvkhn4VDC/s019U7MFnhMsDik52bL/mnjlNt0E8oIV1bdF72BWKxymhtkzlN57h6Q/VZAzJMnhn4EYe8pgjp19CXzh0L7AEFc7IJVL5E679UmFdrT0ERW2ifLuU9PX6K0S2uoccc9oXosnThptkHBSn4oHLtS0LFMHVyKy57yfQ79OAI6bov5pkiKsqjnUpm+HEVNbpyLe48yBQHdCyly1GGPClh3/xGya7YgY/kErLEwO0WyASgysDHkz3bC26kdVocURHbf2RYCQtR5nRoRqeAk8kGin7q+K/Oi2qgLx/3mb7MgQZAYTDRJZfpOaN98rlVJMFwK2yZZA/FvuWTCNX6bZCVpd1vmyN8Xm55GzFEo7OgRFN411AQ7apcjJsRVTrOWk/GHp74djFmQP6t4pGeBczdnRfGvOrACS3TgY6sYFKG1NJkCDT4hLQKXgXwuXTKM406XcZjbB3Ussw10fRoLUyzHzsbBv+VHoVCEm9k9ozv3podZnLqePkjmxI6KW88VYqobGRigxCkyHJELhZiiTZGUirGrCzGa5sxtet9Tkt/RA9I2KsezHr5EGfgNug/lJi/fm/o43ehbNP3laMPrl+mla8PQ9BuzyDq7hknhcwyN9EWkXgDguJU=
+          secure: "Sp41JF8t0+hixcgCxbv32TA5Yz/COE4Tax06ZRiKN0MQ7yF4unYmF0VPIoZV2SePM5U6oXn935NhiOsniYIbhX8tkXLFt7ksnsubcslX0a77tBMXfCVQtg+Ldrl9FxxMnskQxZl2kklUzGSdJw8PfHdgVXhkmr8dlOzNDnahiIwDvWePMHBG65IDsrqNtBij8bQfvMAR9lM0gE7zLKZsQrnopz6N/P5gz+WqcFk2acTIOJSW8Hmd0IVNKpXwO15KfM9Ip3xLJZCYA+2SGD3vLRGELKZYI0j2qkhvSvTy3/QVcmgovW2mWOgTjtb3NjjQOrFpK7VgionpNYo1/Itwhqs12BYLEyvRIk14C3U2rE/5CfnMwEUxmHDQmt/O1h1VROdLQdD4UATSy4vMZK0kQGIgMkyNjTjsBYpmoKJ2KsdxfG4Ay6IQlN4CI909z9fEBoC4ZWdx1ppUcd+VH+4Rw8x8jxOdkkuCjAvrGf4NGiI3zZ0q05FYlKag/LV+M0ZogRU393hFQaLZJPXaX5IXK8IrTrbjo4n2pU7BISYRjcmCK1jfcfO3/DoBkojNIkj50HlX520TJlUjIv/L2Tncx5M9CI1WV4fSVF0Djqg2eXheFV9aEu7omdYs63o+OAt/Ly/Y57AR/6/J/qc9s+R09UgQUCmLoA093IId19jS27Y="
         file: multi-geth*-$TRAVIS_OS_NAME.*
         file_glob: true
         draft: true
-        name: "$TRAVIS_TAG.$TRAVIS_COMMIT"
-        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases."
+        name: "rr-$TRAVIS_COMMIT"
+        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases. The commit SHA will not match any existing commit in the master branch because this is not the project's canonical repo or branch. This is just an independent release for purposes of redundancy and demonstration. You can, however, use the SHA256 hashes of each binary for reference, provided in the `-sha256s.txt` file."
         on:
           branch: rotblauer-release
         skip_cleanup: true
-        tag_name: "rr-$TRAVIS_TAG.$TRAVIS_COMMIT"
+        tag_name: "rr-$TRAVIS_COMMIT"
 
     - os: osx
       go: 1.11.x
@@ -48,16 +48,16 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: rYGs0E3OZoN/TYrMf0NVslpQrFhkrccqpZBt3nEjE/gBuBbSvkhn4VDC/s019U7MFnhMsDik52bL/mnjlNt0E8oIV1bdF72BWKxymhtkzlN57h6Q/VZAzJMnhn4EYe8pgjp19CXzh0L7AEFc7IJVL5E679UmFdrT0ERW2ifLuU9PX6K0S2uoccc9oXosnThptkHBSn4oHLtS0LFMHVyKy57yfQ79OAI6bov5pkiKsqjnUpm+HEVNbpyLe48yBQHdCyly1GGPClh3/xGya7YgY/kErLEwO0WyASgysDHkz3bC26kdVocURHbf2RYCQtR5nRoRqeAk8kGin7q+K/Oi2qgLx/3mb7MgQZAYTDRJZfpOaN98rlVJMFwK2yZZA/FvuWTCNX6bZCVpd1vmyN8Xm55GzFEo7OgRFN411AQ7apcjJsRVTrOWk/GHp74djFmQP6t4pGeBczdnRfGvOrACS3TgY6sYFKG1NJkCDT4hLQKXgXwuXTKM406XcZjbB3Ussw10fRoLUyzHzsbBv+VHoVCEm9k9ozv3podZnLqePkjmxI6KW88VYqobGRigxCkyHJELhZiiTZGUirGrCzGa5sxtet9Tkt/RA9I2KsezHr5EGfgNug/lJi/fm/o43ehbNP3laMPrl+mla8PQ9BuzyDq7hknhcwyN9EWkXgDguJU=
+          secure: "Sp41JF8t0+hixcgCxbv32TA5Yz/COE4Tax06ZRiKN0MQ7yF4unYmF0VPIoZV2SePM5U6oXn935NhiOsniYIbhX8tkXLFt7ksnsubcslX0a77tBMXfCVQtg+Ldrl9FxxMnskQxZl2kklUzGSdJw8PfHdgVXhkmr8dlOzNDnahiIwDvWePMHBG65IDsrqNtBij8bQfvMAR9lM0gE7zLKZsQrnopz6N/P5gz+WqcFk2acTIOJSW8Hmd0IVNKpXwO15KfM9Ip3xLJZCYA+2SGD3vLRGELKZYI0j2qkhvSvTy3/QVcmgovW2mWOgTjtb3NjjQOrFpK7VgionpNYo1/Itwhqs12BYLEyvRIk14C3U2rE/5CfnMwEUxmHDQmt/O1h1VROdLQdD4UATSy4vMZK0kQGIgMkyNjTjsBYpmoKJ2KsdxfG4Ay6IQlN4CI909z9fEBoC4ZWdx1ppUcd+VH+4Rw8x8jxOdkkuCjAvrGf4NGiI3zZ0q05FYlKag/LV+M0ZogRU393hFQaLZJPXaX5IXK8IrTrbjo4n2pU7BISYRjcmCK1jfcfO3/DoBkojNIkj50HlX520TJlUjIv/L2Tncx5M9CI1WV4fSVF0Djqg2eXheFV9aEu7omdYs63o+OAt/Ly/Y57AR/6/J/qc9s+R09UgQUCmLoA093IId19jS27Y="
         file: multi-geth*-$TRAVIS_OS_NAME.*
         file_glob: true
         draft: true
-        name: "$TRAVIS_TAG.$TRAVIS_COMMIT"
-        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases."
+        name: "rr-$TRAVIS_COMMIT"
+        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases. The commit SHA will not match any existing commit in the master branch because this is not the project's canonical repo or branch. This is just an independent release for purposes of redundancy and demonstration. You can, however, use the SHA256 hashes of each binary for reference, provided in the `-sha256s.txt` file."
         on:
           branch: rotblauer-release
         skip_cleanup: true
-        tag_name: "rr-$TRAVIS_TAG.$TRAVIS_COMMIT"
+        tag_name: "rr-$TRAVIS_COMMIT"
 
     # This builder only tests code linters on latest version of Go
     - os: linux

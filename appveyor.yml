@@ -44,9 +44,11 @@ artifacts:
 
 deploy:
   provider: GitHub
+  repository: rotblauer/multi-geth
+  release: "rr-$APPVEYOR_REPO_TAG.$APPVEYOR_REPO_COMMIT"
   artifact: /multi-geth.*-win64\.zip.*/
   auth_token:
-    secure: 6NcsMzxggkLUTrKSB/oJQKMDORkvDIfa39CMSlF0+J4CaPScg3patFk755g+tHfA
+    secure: EgvZTbcYa1XmlwsNek3uMojLsq1MY+qMOQpM4arZjXRitJJT1TX9IxwQ4Ru54lYV
   draft: true
   on:
-    appveyor_repo_tag: true
+    branch: rotblauer-release

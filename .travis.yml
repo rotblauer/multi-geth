@@ -19,15 +19,16 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: KARrS20Qud7MMa4NCxmKIbDeMeeA83Wb+a+O22vIGXOk8IJeG6EcUF+gRsnbT+ARqrKdRZIS84OUB/aebgNLT+j2bk8L+UoBQuz6J6JHDqz1duoVa5CK5bIopVEBfu44ZBXHdE01XWLgGS1ce027iCCk0VRAAjpKDVG2X83YONxClg+cCOc6EpVXviHsxnoMSyOpgxTXQRgdgmv1XyzbBTyYKKFWbtNg7AUbxQ0ngQf800+0OmHLZ7ooILlRH115DQ0KJQeKyegCdjJ0Uc4uoSlqVF1VXKvwCColWT3MHU/U9Ig6Edqloh8ulM3BVhnORrwYwJ+oScfzPUPkg9kwzDdA4QgAhdKHKjOa9V62vPlz/oq4fD4LRs81BHiHQVo/WFK+UTkvrqYpDi+hiFfuob8N4sUGckXP8eEVyY2XP5fCMzkhwe2Xnz2CvWqoLt6v6LeZzYFQs68ZwGuwfKn22PqkuyvO+H3X4qqe7F60ofIl9OjJCeLuIpGovG13t/ivNlRiVk8OYaYQQK6OGDVhVqeWI81GXNrttPQygLStr6nnaQo6Gawtsrwk5/OL2ztKrzypXMy+8o2AaQyxrtaGJxnDv8MMkiv0AN2r3uAAfpS2N8xaImeD0R6/EB9W/P/S54KzxyCvsgcVQ0OHJq1LmICHipzFL7lSj7wBmlXmaiA=
+          secure: RKB2f+rE4V3uWtpHk3hvzu+jr2P6bqU/Fo6g5r1impXWBblC4rs4H402K74YS1YGTXd9QQ3Xde5J654AIH1aQODBtM8ziEnWLWIfufjMLZj7YTo0yccbLdZVPJZoDIPfCjXD7v6N1uOwG7unpqyj/Cw3UFQT52ypLxqy1r8vcu/s1DbHDIIploUz8cdyVDK5QgA78/m6QIooQxsHWBze5Y6HxwTyfzxtjehHIEoMQjxv7xr+gSoBe5Hkm3if1U+4oP9bJYfod2fF3jV+IsM/lCwips9VAAxatwxBBfwfWOfPHlG5R0Dw3hQy+HbB3NNZeIUk697KEb6sX5gAabCidSObzc3bmPako36ARRiS4IIuYSBCoaqmGhzTneLd7i8m77BdbcFi1e43pUbdJiOaZok10Iw1nKi7pOpltatd5KwIq7RfqbCPoHAC/dqd0gVxRIkHMJU/mgYKzkC0/zepaL5tXqC5iHalUpEm8Woq9SavEseaudjRzk/MBxzYStoKKN8T9HDTxZ+ufIJy/TqFeUBlIyo1uuJ9x+PV9lwBd6rilLA4DpnqFLEYkvsHvADez10YtbyUy+O91bSt9UqhCDIAzdZHwCF9KhpY24LP8UYiPBlt8PfndfkLUwg6sM7YtOdq+E5lCzTWg0QXWAxFC09TDliafGz3Sfso+5nOxPc=
         file: multi-geth*-$TRAVIS_OS_NAME.*
         file_glob: true
         draft: true
+        name: "$TRAVIS_TAG.$TRAVIS_COMMIT"
+        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases."
         on:
-          repo: ethoxy/multi-geth
-          tags: true
+          branch: rotblauer-release
         skip_cleanup: true
-        tag_name: "$TRAVIS_TAG"
+        tag_name: "rr-$TRAVIS_TAG.$TRAVIS_COMMIT"
 
     - os: osx
       go: 1.11.x
@@ -47,15 +48,16 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: KARrS20Qud7MMa4NCxmKIbDeMeeA83Wb+a+O22vIGXOk8IJeG6EcUF+gRsnbT+ARqrKdRZIS84OUB/aebgNLT+j2bk8L+UoBQuz6J6JHDqz1duoVa5CK5bIopVEBfu44ZBXHdE01XWLgGS1ce027iCCk0VRAAjpKDVG2X83YONxClg+cCOc6EpVXviHsxnoMSyOpgxTXQRgdgmv1XyzbBTyYKKFWbtNg7AUbxQ0ngQf800+0OmHLZ7ooILlRH115DQ0KJQeKyegCdjJ0Uc4uoSlqVF1VXKvwCColWT3MHU/U9Ig6Edqloh8ulM3BVhnORrwYwJ+oScfzPUPkg9kwzDdA4QgAhdKHKjOa9V62vPlz/oq4fD4LRs81BHiHQVo/WFK+UTkvrqYpDi+hiFfuob8N4sUGckXP8eEVyY2XP5fCMzkhwe2Xnz2CvWqoLt6v6LeZzYFQs68ZwGuwfKn22PqkuyvO+H3X4qqe7F60ofIl9OjJCeLuIpGovG13t/ivNlRiVk8OYaYQQK6OGDVhVqeWI81GXNrttPQygLStr6nnaQo6Gawtsrwk5/OL2ztKrzypXMy+8o2AaQyxrtaGJxnDv8MMkiv0AN2r3uAAfpS2N8xaImeD0R6/EB9W/P/S54KzxyCvsgcVQ0OHJq1LmICHipzFL7lSj7wBmlXmaiA=
+          secure: RKB2f+rE4V3uWtpHk3hvzu+jr2P6bqU/Fo6g5r1impXWBblC4rs4H402K74YS1YGTXd9QQ3Xde5J654AIH1aQODBtM8ziEnWLWIfufjMLZj7YTo0yccbLdZVPJZoDIPfCjXD7v6N1uOwG7unpqyj/Cw3UFQT52ypLxqy1r8vcu/s1DbHDIIploUz8cdyVDK5QgA78/m6QIooQxsHWBze5Y6HxwTyfzxtjehHIEoMQjxv7xr+gSoBe5Hkm3if1U+4oP9bJYfod2fF3jV+IsM/lCwips9VAAxatwxBBfwfWOfPHlG5R0Dw3hQy+HbB3NNZeIUk697KEb6sX5gAabCidSObzc3bmPako36ARRiS4IIuYSBCoaqmGhzTneLd7i8m77BdbcFi1e43pUbdJiOaZok10Iw1nKi7pOpltatd5KwIq7RfqbCPoHAC/dqd0gVxRIkHMJU/mgYKzkC0/zepaL5tXqC5iHalUpEm8Woq9SavEseaudjRzk/MBxzYStoKKN8T9HDTxZ+ufIJy/TqFeUBlIyo1uuJ9x+PV9lwBd6rilLA4DpnqFLEYkvsHvADez10YtbyUy+O91bSt9UqhCDIAzdZHwCF9KhpY24LP8UYiPBlt8PfndfkLUwg6sM7YtOdq+E5lCzTWg0QXWAxFC09TDliafGz3Sfso+5nOxPc=
         file: multi-geth*-$TRAVIS_OS_NAME.*
         file_glob: true
         draft: true
+        name: "$TRAVIS_TAG.$TRAVIS_COMMIT"
+        body: "Independent multi-geth release by Rotblauer, forked from https://github.com/ethoxy/multi-geth/releases."
         on:
-          repo: ethoxy/multi-geth
-          tags: true
+          branch: rotblauer-release
         skip_cleanup: true
-        tag_name: "$TRAVIS_TAG"
+        tag_name: "rr-$TRAVIS_TAG.$TRAVIS_COMMIT"
 
     # This builder only tests code linters on latest version of Go
     - os: linux

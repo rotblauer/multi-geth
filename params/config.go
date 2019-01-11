@@ -422,7 +422,9 @@ type ChainConfig struct {
 	//
 	// EXP cost increase
 	// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-160.md
-	EIP160FBlock *big.Int `json:"eip160FBlock,omitempty"`
+	// NOTE: this json tag (a.) varies from it's 'siblings', which have 'F's in them, and (b.) without the 'F' will vary from ETH implementations if they choose to accept the PR
+	// FIXME?
+	EIP160FBlock *big.Int `json:"eip160Block,omitempty"`
 	// State trie clearing (== EIP158 proper)
 	// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-161.md
 	EIP161FBlock *big.Int `json:"eip161FBlock,omitempty"`

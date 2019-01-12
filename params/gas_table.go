@@ -65,7 +65,7 @@ var (
 	}
 
 	// GasTableEIP160 contain the gas re-prices for
-	// the EIP155/EIP158 phase.
+	// the EIP160 phase.
 	GasTableEIP160 = GasTable{
 		ExtcodeSize: 700,
 		ExtcodeCopy: 700,

@@ -1330,6 +1330,10 @@ func (bc *BlockChain) insertSidechain(it *insertIterator) (int, []interface{}, [
 	// If the externTd was larger than our local TD, we now need to reimport the previous
 	// blocks to regenerate the required state
 	localTd := bc.GetTd(bc.CurrentBlock().Hash(), current)
+	if localTd == nil {
+		log.Error("WTF nil local total difficulty", "block number", bc.CurrentBlock().Number(), "block hash", bc.CurrentBlock().Hash().Hex()[0:9], "block deprecated tdifficulty", bc.CurrentBlock().DeprecatedTd())
+		localTd = big.NewInt(0) // DUMB FIX
+	}
 	if localTd.Cmp(externTd) > 0 {
 		log.Info("Sidechain written to disk", "start", it.first().NumberU64(), "end", it.previous().NumberU64(), "sidetd", externTd, "localtd", localTd)
 		return it.index, nil, nil, err

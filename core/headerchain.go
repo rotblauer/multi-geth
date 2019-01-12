@@ -366,7 +366,7 @@ func (hc *HeaderChain) GetTd(hash common.Hash, number uint64) *big.Int {
 	}
 	td := rawdb.ReadTd(hc.chainDb, hash, number)
 	if td == nil {
-		return nil
+		return nil // REALLLLLYYYYY
 	}
 	// Cache the found body for next time and return
 	hc.tdCache.Add(hash, td)

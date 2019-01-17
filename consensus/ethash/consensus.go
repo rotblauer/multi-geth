@@ -39,8 +39,8 @@ import (
 // Ethash proof-of-work protocol constants.
 var (
 	FrontierBlockReward      = big.NewInt(5e+18)                                   // Block reward in wei for successfully mining a block
-	EIP649FBlockReward       = big.NewInt(3e+17)                                   // Block reward in wei for successfully mining a block upward from Byzantium
-	EIP1234FBlockReward      = big.NewInt(2e+17)                                   // Block reward in wei for successfully mining a block upward from Constantinople
+	EIP649FBlockReward       = big.NewInt(3e+18)                                   // Block reward in wei for successfully mining a block upward from Byzantium
+	EIP1234FBlockReward      = big.NewInt(2e+18)                                   // Block reward in wei for successfully mining a block upward from Constantinople
 	SocialBlockReward        = new(big.Int).Mul(big.NewInt(50), big.NewInt(1e+18)) // Block reward in wei for successfully mining a block upward for Ethereum Social
 	EthersocialBlockReward   = big.NewInt(5e+18)                                   // Block reward in wei for successfully mining a block upward for Ethersocial Network
 	maxUncles                = 2                                                   // Maximum number of uncles allowed in a single block
